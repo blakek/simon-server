@@ -38,7 +38,7 @@ const handlePart = (socket) => ({ group = '', username = '' }) => {
   socket.leave(group)
 }
 
-const handleSend = (socket) => ({ to = { group: '', username: '' }, text = '' }) => {
+const handleSend = (socket) => ({ to = { group: '', username: '' }, data = { text: '' } }) => {
   const { group, username } = to
   const sendNotFound = () => socket.emit('simon-error', 'recipient-not-found', messages.noUser)
   const groupSockets = getGroupConnections({ group, socket })
@@ -53,7 +53,7 @@ const handleSend = (socket) => ({ to = { group: '', username: '' }, text = '' })
     return sendNotFound()
   }
 
-  socket.to(toUser).emit('say', { text: text })
+  socket.to(toUser).emit('say', { data })
 }
 
 const handleYell = (socket) => ({ to = { group: '' }, text = '' }) => {
