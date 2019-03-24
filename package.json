@@ -10,7 +10,7 @@
     "test": "npm run lint && ava"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^1.4.0",
     "eslint": "^3.14.1",
     "eslint-config-standard": "^10.1.0",
     "eslint-plugin-promise": "^3.4.0",
